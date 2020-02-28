@@ -1,0 +1,132 @@
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,収容外部EPG一覧（多摩）,,,,,,,,,,,,,,,,,,,追加,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Tenant名,テナント名,VRF名,"L3-Out名
+(NW名)","外部EPG名
+(NW名)",接続先,"ルーティング
+方式","ACI内
+ルーティング
+制御","ACI外
+広報経路",Static Route,,OSPF,,機器名,"収容Leaf
+(ホスト名）",論理ノード名,"ルータID
+/Loopback IP",収容ポート,Path Type,"Path
+(PC/vPC)",Logical Node Profile,OSPF,,,,,,,,ポート種別,VLAN ID,"IPアドレス
+（ゲートウェイ）","セカンダリIPアドレス
+（VIP）",MTU,VLAN Mode,接続先,,QoS区分,QoS,備考
+,,,,,,,,,,Prefix,Next-Hop,Area ID,Area type,,,,,,,,Logical Interface,OSPF Interface,Priority,Cost,Network-Type,Hello Interval,Dead Interval,Retransmit Interval,Transmit Deley,,,,,,,物理装置名,物理Port名,,クラシファイ,
+,tm-pacc,本番業務面勘定系,vrf-pacc,l3out-paccdist,exepg-paccdist,Dist,OSPF,"0.0.0.0/0
+※ALL許可","0.0.0.0/0
+※ALL許可",-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,10.254.16.240,Eth1/01,Direct Port Channel,pol-pc-101-p1,logic-int-prof-101-01,ospf-int-pol-101-01,-,0(default),Point-to-point,1,4,1,1,SVI,525,10.254.16.138/30,-,1500,Trunk(tag付き),nwtm-r6509-adcd010,Te3/5,本番業務面勘定系,Level1,
+,,,,,,,,,,,,,,,,,,Eth1/02,Direct Port Channel,pol-pc-101-p2,logic-int-prof-101-02,,-,0(default),Point-to-point,1,4,1,1,SVI,528,10.254.16.150/30,-,1500,Trunk(tag付き),nwtm-r6509-adcd020,Te3/5,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,10.254.16.239,Eth1/01,Direct Port Channel,pol-pc-102-p1,logic-int-prof-102-01,ospf-int-pol-102-01,-,0(default),Point-to-point,1,4,1,1,SVI,527,10.254.16.146/30,-,1500,Trunk(tag付き),nwtm-r6509-adcd010,Te4/5,,,
+,,,,,,,,,,,,,,,,,,Eth1/02,Direct Port Channel,pol-pc-102-p2,logic-int-prof-102-02,,-,0(default),Point-to-point,1,4,1,1,SVI,526,10.254.16.142/30,-,1500,Trunk(tag付き),nwtm-r6509-adcd020,Te4/5,,,
+,,,,l3out-paccesg,exepg-paccesg,ESG(NSX),OSPF,0.0.0.0/0,0.0.0.0/0,-,-,310,NSSA,多摩本番 Leaf(VM6)#1,nwtm-i9318-zlfs4011,logic-nd-401,11.17.255.1,Eth1/01,Port,-,logic-int-prof-401-01,ospf-int-pol-401-01,255,0(default),Broadcast,1,4,1,1,SVI,1494,11.3.31.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-1,本番業務面勘定系,Level1,管理クラスタ(CL_DC_T61_MG1)、ESG01a(勘定系01)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1494,11.3.31.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG02a(勘定系02)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1494,11.3.31.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1494,11.3.31.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,多摩本番 Leaf(VM6)#2,nwtm-i9318-zlfs4022,logic-nd-402,11.17.255.2,Eth1/01,Port,-,logic-int-prof-402-01,ospf-int-pol-402-01,255,0(default),Broadcast,1,4,1,1,SVI,1495,11.3.31.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)、ESG01a(勘定系01)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1495,11.3.31.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG02a(勘定系02)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1495,11.3.31.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1495,11.3.31.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)
+,tm-pinf,本番業務面情報系,vrf-pinf,l3out-pinfdist,exepg-pinfdist,Dist,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,10.254.40.246,Eth1/01,Direct Port Channel,pol-pc-101-p1,logic-int-prof-101-01,ospf-int-pol-101-01,-,0(default),Point-to-point,1,4,1,1,SVI,529,10.254.40.66/30,-,1500,Trunk(tag付き),nwtm-r6509-adcd010,Te3/5,本番業務面情報系,Level1,
+,,,,,,,,,,,,,,,,,,Eth1/02,Direct Port Channel,pol-pc-101-p2,logic-int-prof-101-02,,-,0(default),Point-to-point,1,4,1,1,SVI,532,10.254.40.78/30,-,1500,Trunk(tag付き),nwtm-r6509-adcd020,Te3/5,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,10.254.40.245,Eth1/01,Direct Port Channel,pol-pc-102-p1,logic-int-prof-102-01,ospf-int-pol-102-01,-,0(default),Point-to-point,1,4,1,1,SVI,531,10.254.40.74/30,-,1500,Trunk(tag付き),nwtm-r6509-adcd010,Te4/5,,,
+,,,,,,,,,,,,,,,,,,Eth1/02,Direct Port Channel,pol-pc-102-p2,logic-int-prof-102-02,,-,0(default),Point-to-point,1,4,1,1,SVI,530,10.254.40.70/30,-,1500,Trunk(tag付き),nwtm-r6509-adcd020,Te4/5,,,
+,,,,l3out-pinfesg,exepg-pinfesg,ESG(NSX),OSPF,0.0.0.0/0,0.0.0.0/0,-,-,310,NSSA,多摩本番 Leaf(VM6)#1,nwtm-i9318-zlfs4011,logic-nd-401,11.17.255.3,Eth1/01,Port,-,logic-int-prof-401-01,ospf-int-pol-401-01,255,0(default),Broadcast,1,4,1,1,SVI,1496,11.15.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-1,本番業務面情報系,Level1,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1496,11.15.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1496,11.15.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-1,,,管理クラスタ(CL_DC_T61_MG1)、ESG01b(情報系01)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1496,11.15.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG02b(情報系02)
+,,,,,,,,,,,,,,多摩本番 Leaf(VM6)#2,nwtm-i9318-zlfs4022,logic-nd-402,11.17.255.4,Eth1/01,Port,-,logic-int-prof-402-01,ospf-int-pol-402-01,255,0(default),Broadcast,1,4,1,1,SVI,1497,11.15.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1497,11.15.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1497,11.15.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)、ESG01b(情報系01)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1497,11.15.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG02b(情報系02)
+,,,,l3out-pinfasr01,exepg-pinfasr01,ASR,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,1,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,10.254.40.246,Eth1/07,Direct Port Channel,pol-pc-101-p7,logic-int-prof-101-07,ospf-int-pol-101-07,-,0(default),Point-to-point,1,4,1,1,SVI,800,11.15.158.65/28,-,1500,Trunk(tag付き),nwtm-r1001-zclh010,TE1,本番業務面情報系,Level1,
+,,,,,,,,,,,,,,,,,,Eth1/08,Direct Port Channel,pol-pc-101-p8,logic-int-prof-101-08,,-,0(default),Point-to-point,1,4,1,1,SVI,850,11.15.158.97/28,-,1500,Trunk(tag付き),nwtm-r1001-zclh020,TE1,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,10.254.40.245,Eth1/07,Direct Port Channel,pol-pc-102-p7,logic-int-prof-102-07,ospf-int-pol-102-07,-,0(default),Point-to-point,1,4,1,1,SVI,801,11.15.158.81/28,-,1500,Trunk(tag付き),nwtm-r1001-zclh010,TE2,,,
+,,,,,,,,,,,,,,,,,,Eth1/08,Direct Port Channel,pol-pc-102-p8,logic-int-prof-102-08,,-,0(default),Point-to-point,1,4,1,1,SVI,851,11.15.158.113/28,-,1500,Trunk(tag付き),nwtm-r1001-zclh020,TE2,,,
+,tm-pope,本番運用面,vrf-pope,l3out-popedist,exepg-popedist,Dist,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,11.22.160.248,Eth1/03,Direct Port Channel,pol-pc-101-p3,logic-int-prof-101-03,ospf-int-pol-101-03,-,0(default),Point-to-point,1,4,1,1,SVI,3946,11.22.160.34/30,-,1500,Trunk(tag付き),nwtm-r5672-udcd030,Eth1/4,本番運用面,Level2,
+,,,,,,,,,,,,,,,,,,Eth1/04,Direct Port Channel,pol-pc-101-p4,logic-int-prof-101-04,,-,0(default),Point-to-point,1,4,1,1,SVI,3949,11.22.160.46/30,-,1500,Trunk(tag付き),nwtm-r5672-udcd040,Eth1/4,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,11.22.160.247,Eth1/03,Direct Port Channel,pol-pc-102-p3,logic-int-prof-102-03,ospf-int-pol-102-03,-,0(default),Point-to-point,1,4,1,1,SVI,3948,11.22.160.42/30,-,1500,Trunk(tag付き),nwtm-r5672-udcd030,Eth1/16,,,
+,,,,,,,,,,,,,,,,,,Eth1/04,Direct Port Channel,pol-pc-102-p4,logic-int-prof-102-04,,-,0(default),Point-to-point,1,4,1,1,SVI,3947,11.22.160.38/30,-,1500,Trunk(tag付き),nwtm-r5672-udcd040,Eth1/16,,,
+,,,,l3out-popeesg,exepg-popeesg,ESG(NSX),OSPF,0.0.0.0/0,0.0.0.0/0,-,-,310,NSSA,多摩本番 Leaf(VM6)#1,nwtm-i9318-zlfs4011,logic-nd-401,11.17.255.5,Eth1/01,Port,-,logic-int-prof-401-01,ospf-int-pol-401-01,255,0(default),Broadcast,1,4,1,1,SVI,1498,11.18.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-1,本番運用面,Level2,管理クラスタ(CL_DC_T61_MG1)、ESG01c(運用系01)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1498,11.18.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG02c(運用系02)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1498,11.18.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1498,11.18.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,多摩本番 Leaf(VM6)#2,nwtm-i9318-zlfs4022,logic-nd-402,11.17.255.6,Eth1/01,Port,-,logic-int-prof-402-01,ospf-int-pol-402-01,255,0(default),Broadcast,1,4,1,1,SVI,1499,11.18.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)、ESG01c(運用系01)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1499,11.18.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG02c(運用系02)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1499,11.18.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1499,11.18.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)
+,tm-tacc,本昇業務面勘定系,vrf-tacc,l3out-taccdist,exepg-taccdist,Dist,OSPF,"0.0.0.0/0
+※ALL許可","0.0.0.0/0
+※ALL許可",-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,10.253.16.242,Eth1/17,Direct Port Channel,pol-pc-101-t1,logic-int-prof-101-17,ospf-int-pol-101-17,-,0(default),Point-to-point,1,4,1,1,SVI,600,10.253.16.114/30,-,1500,Trunk(tag付き),bktm-r6509-zdcd010t,Te6/5,開発業務面勘定系,Level3,
+,,,,,,,,,,,,,,,,,,Eth1/18,Direct Port Channel,pol-pc-101-t2,,,-,0(default),Point-to-point,1,4,1,1,SVI,603,10.253.16.126/30,-,1500,Trunk(tag付き),bktm-r6509-zdcd020t,Te6/5,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,10.253.16.241,Eth1/17,Direct Port Channel,pol-pc-102-t1,logic-int-prof-102-17,ospf-int-pol-102-17,-,0(default),Point-to-point,1,4,1,1,SVI,602,10.253.16.122/30,-,1500,Trunk(tag付き),bktm-r6509-zdcd010t,Te8/5,,,
+,,,,,,,,,,,,,,,,,,Eth1/18,Direct Port Channel,pol-pc-102-t2,,,-,0(default),Point-to-point,1,4,1,1,SVI,601,10.253.16.118/30,-,1500,Trunk(tag付き),bktm-r6509-zdcd020t,Te8/5,,,
+,,,,l3out-taccesg,exepg-taccesg,ESG(NSX),OSPF,0.0.0.0/0,0.0.0.0/0,-,-,310,NSSA,多摩本番 Leaf(VM6)#1,nwtm-i9318-zlfs4011,logic-nd-401,12.17.255.1,Eth1/01,Port,-,logic-int-prof-401-01,ospf-int-pol-401-01,255,0(default),Broadcast,1,4,1,1,SVI,1894,12.3.31.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-1,開発業務面勘定系,Level3,管理クラスタ(CL_DC_T61_MG1)、ESG02a-stage(勘定系02)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1894,12.3.31.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG01a-stage(勘定系01)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1894,12.3.31.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1894,12.3.31.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,多摩本番 Leaf(VM6)#2,nwtm-i9318-zlfs4022,logic-nd-402,12.17.255.2,Eth1/01,Port,-,logic-int-prof-402-01,ospf-int-pol-402-01,255,0(default),Broadcast,1,4,1,1,SVI,1895,12.3.31.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)、ESG02a-stage(勘定系02)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1895,12.3.31.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG01a-stage(勘定系01)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1895,12.3.31.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1895,12.3.31.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,l3out-taccesg2,exepg-taccesg2,ESG(NSX),OSPF,0.0.0.0/0,0.0.0.0/0,-,-,320,NSSA,多摩本番 Leaf(VM6)#1,nwtm-i9318-zlfs4011,logic-nd-401,12.17.255.1,Eth1/33,Direct Port Channel,pol-pc-401-p5,logic-int-prof-401-33,ospf-int-pol-401-33,255,0(default),Broadcast,1,4,1,1,SVI,1882,12.3.31.97/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #1,Q1,開発業務面勘定系,Level3,
+,,,,,,,,,,,,,,,,,,Eth1/34,Direct Port Channel,pol-pc-401-p5,,,255,0(default),Broadcast,1,4,1,1,SVI,1882,12.3.31.97/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #1,Q2,,,
+,,,,,,,,,,,,,,,,,,Eth1/35,Direct Port Channel,pol-pc-401-p5,,,255,0(default),Broadcast,1,4,1,1,SVI,1882,12.3.31.97/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #1,Q3,,,
+,,,,,,,,,,,,,,,,,,Eth1/36,Direct Port Channel,pol-pc-401-p5,,,255,0(default),Broadcast,1,4,1,1,SVI,1882,12.3.31.97/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #1,Q4,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(VM6)#2,nwtm-i9318-zlfs4022,logic-nd-402,12.17.255.2,Eth1/33,Direct Port Channel,pol-pc-402-p6,logic-int-prof-402-33,ospf-int-pol-402-33,255,0(default),Broadcast,1,4,1,1,SVI,1883,12.3.31.113/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #2,Q1,,,
+,,,,,,,,,,,,,,,,,,Eth1/34,Direct Port Channel,pol-pc-402-p6,,,255,0(default),Broadcast,1,4,1,1,SVI,1883,12.3.31.113/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #2,Q2,,,
+,,,,,,,,,,,,,,,,,,Eth1/35,Direct Port Channel,pol-pc-402-p6,,,255,0(default),Broadcast,1,4,1,1,SVI,1883,12.3.31.113/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #2,Q3,,,
+,,,,,,,,,,,,,,,,,,Eth1/36,Direct Port Channel,pol-pc-402-p6,,,255,0(default),Broadcast,1,4,1,1,SVI,1883,12.3.31.113/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #2,Q4,,,
+,tm-ｔinf,本昇業務面情報系,vrf-ｔinf,l3out-tinfdist,exepg-tinfdist,Dist,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,10.253.40.244,Eth1/17,Direct Port Channel,pol-pc-101-t1,logic-int-prof-101-17,ospf-int-pol-101-17,-,0(default),Point-to-point,1,4,1,1,SVI,604,10.253.40.82/30,-,1500,Trunk(tag付き),bktm-r6509-zdcd010t,Te6/5,開発業務面情報系,Level3,
+,,,,,,,,,,,,,,,,,,Eth1/18,Direct Port Channel,pol-pc-101-t2,,,-,0(default),Point-to-point,1,4,1,1,SVI,607,10.253.40.94/30,-,1500,Trunk(tag付き),bktm-r6509-zdcd020t,Te6/5,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,10.253.40.243,Eth1/17,Direct Port Channel,pol-pc-102-t1,logic-int-prof-102-17,ospf-int-pol-102-17,-,0(default),Point-to-point,1,4,1,1,SVI,606,10.253.40.90/30,-,1500,Trunk(tag付き),bktm-r6509-zdcd010t,Te8/5,,,
+,,,,,,,,,,,,,,,,,,Eth1/18,Direct Port Channel,pol-pc-102-t2,,,-,0(default),Point-to-point,1,4,1,1,SVI,605,10.253.40.86/30,-,1500,Trunk(tag付き),bktm-r6509-zdcd020t,Te8/5,,,
+,,,,l3out-tinfesg,exepg-tinfesg,ESG(NSX),OSPF,0.0.0.0/0,0.0.0.0/0,-,-,310,NSSA,多摩本番 Leaf(VM6)#1,nwtm-i9318-zlfs4011,logic-nd-401,12.17.255.3,Eth1/01,Port,-,logic-int-prof-401-01,ospf-int-pol-401-01,255,0(default),Broadcast,1,4,1,1,SVI,1896,12.15.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-1,開発業務面情報系,Level3,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1896,12.15.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1896,12.15.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-1,,,管理クラスタ(CL_DC_T61_MG1)、ESG02b-stage(情報系02)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1896,12.15.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG01b-stage(情報系01)
+,,,,,,,,,,,,,,多摩本番 Leaf(VM6)#2,nwtm-i9318-zlfs4022,logic-nd-402,12.17.255.4,Eth1/01,Port,-,logic-int-prof-402-01,ospf-int-pol-402-01,255,0(default),Broadcast,1,4,1,1,SVI,1897,12.15.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1897,12.15.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1897,12.15.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)、ESG02b-stage(情報系02)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1897,12.15.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG01b-stage(情報系01)
+,,,,l3out-tinfasr,exepg-tinfasr,ASR,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,1,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,10.253.40.244,Eth1/07,Direct Port Channel,-,logic-int-prof-101-07,ospf-int-pol-101-07,-,0(default),Point-to-point,1,4,1,1,SVI,900,12.15.158.65/28,-,1500,Trunk(tag付き),nwtm-r1001-zclh010,TE3,,Level3,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,10.253.40.243,Eth1/07,Direct Port Channel,-,logic-int-prof-102-07,ospf-int-pol-102-07,-,0(default),Point-to-point,1,4,1,1,SVI,901,12.15.158.81/28,-,1500,Trunk(tag付き),nwtm-r1001-zclh010,TE4,,,
+,tm-ｔope,本昇運用面,vrf-ｔope,l3out-topedist,exepg-topedist,Dist,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,12.22.160.248,Eth1/19,Direct Port Channel,pol-pc-101-t3,logic-int-prof-101-19,ospf-int-pol-101-19,-,0(default),Point-to-point,1,4,1,1,SVI,3956,12.22.160.34/30,-,1500,Trunk(tag付き),nwtm-r5672-zdcd050t,Eth1/4,開発運用面,Level3,
+,,,,,,,,,,,,,,,,,,Eth1/20,Direct Port Channel,pol-pc-101-t4,,,-,0(default),Point-to-point,1,4,1,1,SVI,3959,12.22.160.46/30,-,1500,Trunk(tag付き),nwtm-r5672-zdcd060t,Eth1/4,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,12.22.160.247,Eth1/19,Direct Port Channel,pol-pc-102-t3,logic-int-prof-102-19,ospf-int-pol-102-19,-,0(default),Point-to-point,1,4,1,1,SVI,3958,12.22.160.42/30,-,1500,Trunk(tag付き),nwtm-r5672-zdcd050t,Eth1/16,,,
+,,,,,,,,,,,,,,,,,,Eth1/20,Direct Port Channel,pol-pc-102-t4,,,-,0(default),Point-to-point,1,4,1,1,SVI,3957,12.22.160.38/30,-,1500,Trunk(tag付き),nwtm-r5672-zdcd060t,Eth1/16,,,
+,,,,l3out-topeesg,exepg-topeesg,ESG(NSX),OSPF,0.0.0.0/0,0.0.0.0/0,-,-,310,NSSA,多摩本番 Leaf(VM6)#1,nwtm-i9318-zlfs4011,logic-nd-401,12.17.255.5,Eth1/01,Port,-,logic-int-prof-401-01,ospf-int-pol-401-01,255,0(default),Broadcast,1,4,1,1,SVI,1898,12.18.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-1,開発運用面,Level3,管理クラスタ(CL_DC_T61_MG1)、ESG02c-stage(運用系02)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1898,12.18.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG01c-stage(運用系01)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1898,12.18.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1898,12.18.159.193/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM1-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,多摩本番 Leaf(VM6)#2,nwtm-i9318-zlfs4022,logic-nd-402,12.17.255.6,Eth1/01,Port,-,logic-int-prof-402-01,ospf-int-pol-402-01,255,0(default),Broadcast,1,4,1,1,SVI,1899,12.18.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)、ESG02c-stage(運用系02)
+,,,,,,,,,,,,,,,,,,Eth1/02,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1899,12.18.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#48,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)、ESG01c-stage(運用系01)
+,,,,,,,,,,,,,,,,,,Eth1/17,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1899,12.18.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-1,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,,,,,,,,,,,,,,,Eth1/18,Port,-,,,255,0(default),Broadcast,1,4,1,1,SVI,1899,12.18.159.209/28,-,1500,Trunk(tag付き),Blade Chassis#49,PTM2-2,,,管理クラスタ(CL_DC_T61_MG1)
+,,,,l3out-topeesg2,exepg-topeesg2,ESG(NSX),OSPF,0.0.0.0/0,0.0.0.0/0,-,-,320,NSSA,多摩本番 Leaf(VM6)#1,nwtm-i9318-zlfs4011,logic-nd-401,12.17.255.5,Eth1/33,Direct Port Channel,pol-pc-401-p5,logic-int-prof-401-33,ospf-int-pol-401-33,255,0(default),Broadcast,1,4,1,1,SVI,1884,12.18.159.97/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #1,Q1,開発運用面,Level3,
+,,,,,,,,,,,,,,,,,,Eth1/34,Direct Port Channel,pol-pc-401-p5,,,255,0(default),Broadcast,1,4,1,1,SVI,1884,12.18.159.97/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #1,Q2,,,
+,,,,,,,,,,,,,,,,,,Eth1/35,Direct Port Channel,pol-pc-401-p5,,,255,0(default),Broadcast,1,4,1,1,SVI,1884,12.18.159.97/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #1,Q3,,,
+,,,,,,,,,,,,,,,,,,Eth1/36,Direct Port Channel,pol-pc-401-p5,,,255,0(default),Broadcast,1,4,1,1,SVI,1884,12.18.159.97/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #1,Q4,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(VM6)#2,nwtm-i9318-zlfs4022,logic-nd-402,12.17.255.6,Eth1/33,Direct Port Channel,pol-pc-402-p6,logic-int-prof-402-33,ospf-int-pol-402-33,255,0(default),Broadcast,1,4,1,1,SVI,1885,12.18.159.113/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #2,Q1,,,
+,,,,,,,,,,,,,,,,,,Eth1/34,Direct Port Channel,pol-pc-402-p6,,,255,0(default),Broadcast,1,4,1,1,SVI,1885,12.18.159.113/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #2,Q2,,,
+,,,,,,,,,,,,,,,,,,Eth1/35,Direct Port Channel,pol-pc-402-p6,,,255,0(default),Broadcast,1,4,1,1,SVI,1885,12.18.159.113/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #2,Q3,,,
+,,,,,,,,,,,,,,,,,,Eth1/36,Direct Port Channel,pol-pc-402-p6,,,255,0(default),Broadcast,1,4,1,1,SVI,1885,12.18.159.113/28,-,1500,Trunk(tag付き),多摩本番1 HPE Virtual Connect Ethernet #2,Q4,,,
+,tm-pbak,"統合バックアップ
+（本番業務面情報系）",vrf-pbak,l3out-pbakbk,exepg-pbakbk,pbakbk1,Static,0.0.0.0/0,-,11.8.0.0/24,11.8.8.225,-,-,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101-102,10.254.40.246,Eth1/05,Virtual Port Channel,pol-vpc-101-102-port-05,logic-int-prof-vpc-101-102-05,-,-,-,-,-,-,-,-,SVI,3020,11.8.8.230/28,11.8.8.229/28,1500,Trunk(tag付き),nwtm-r5548-bdcd010,Eth1/23,本番業務面情報系,Level1,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,,10.254.40.245,Eth1/05,,,,,,,,,,,,SVI,3020,11.8.8.231/28,11.8.8.229/28,1500,Trunk(tag付き),nwtm-r5548-bdcd010,Eth1/24,,,
+,,,,,,pbakbk2,Static,0.0.0.0/0,-,,,-,-,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101-102,10.254.40.246,Eth1/06,Virtual Port Channel,pol-vpc-101-102-port-06,logic-int-prof-vpc-101-102-06,-,-,-,-,-,-,-,-,SVI,3020,11.8.8.230/28,11.8.8.229/28,1500,Trunk(tag付き),nwtm-r5548-bdcd020,Eth1/23,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,,10.254.40.245,Eth1/06,,,,,,,,,,,,SVI,3020,11.8.8.231/28,11.8.8.229/28,1500,Trunk(tag付き),nwtm-r5548-bdcd020,Eth1/24,,,
+,tm-pnms,本番NMS,vrf-pnms,l3out-pnmsdist,exepg-pnmsdist,Dist,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,11.22.160.234,Eth1/03,Direct Port Channel,pol-pc-101-p3,logic-int-prof-101-03,ospf-int-pol-101-03,-,0(default),Point-to-point,1,4,1,1,SVI,3950,11.22.160.98/30,-,1500,Trunk(tag付き),nwtm-r5672-udcd030,Eth1/4,本番運用面,Level2,本番昇格時(2019年度)に新規作成
+,,,,,,,,,,,,,,,,,,Eth1/04,Direct Port Channel,pol-pc-101-p4,logic-int-prof-101-04,,-,0(default),Point-to-point,1,4,1,1,SVI,3953,11.22.160.110/30,-,1500,Trunk(tag付き),nwtm-r5672-udcd040,Eth1/4,,,本番昇格時(2019年度)に新規作成
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,11.22.160.233,Eth1/03,Direct Port Channel,pol-pc-102-p3,logic-int-prof-102-03,ospf-int-pol-102-03,-,0(default),Point-to-point,1,4,1,1,SVI,3952,11.22.160.106/30,-,1500,Trunk(tag付き),nwtm-r5672-udcd030,Eth1/16,,,本番昇格時(2019年度)に新規作成
+,,,,,,,,,,,,,,,,,,Eth1/04,Direct Port Channel,pol-pc-102-p4,logic-int-prof-102-04,,-,0(default),Point-to-point,1,4,1,1,SVI,3951,11.22.160.102/30,-,1500,Trunk(tag付き),nwtm-r5672-udcd040,Eth1/16,,,本番昇格時(2019年度)に新規作成
+,,,,l3out-tnmsdist,exepg-tnmsdist,Dist,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,12.22.160.234,Eth1/19,Direct Port Channel,pol-pc-101-t3,logic-int-prof-101-19,ospf-int-pol-101-19,-,0(default),Point-to-point,1,4,1,1,SVI,3942,12.22.160.98/30,-,1500,Trunk(tag付き),nwtm-r5672-zdcd050t,Eth1/4,開発運用面,Level3,NMSテナント移設時(2019/3/16)に新規作成
+,,,,,,,,,,,,,,,,,,Eth1/20,Direct Port Channel,pol-pc-101-t4,,,-,0(default),Point-to-point,1,4,1,1,SVI,3945,12.22.160.110/30,-,1500,Trunk(tag付き),nwtm-r5672-zdcd060t,Eth1/4,,,NMSテナント移設時(2019/3/16)に新規作成
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,12.22.160.233,Eth1/19,Direct Port Channel,pol-pc-102-t3,logic-int-prof-102-19,ospf-int-pol-102-19,-,0(default),Point-to-point,1,4,1,1,SVI,3944,12.22.160.106/30,-,1500,Trunk(tag付き),nwtm-r5672-zdcd050t,Eth1/16,,,NMSテナント移設時(2019/3/16)に新規作成
+,,,,,,,,,,,,,,,,,,Eth1/20,Direct Port Channel,pol-pc-102-t4,,,-,0(default),Point-to-point,1,4,1,1,SVI,3943,12.22.160.102/30,-,1500,Trunk(tag付き),nwtm-r5672-zdcd060t,Eth1/16,,,NMSテナント移設時(2019/3/16)に新規作成
+,tm-pwan,本番WAN Dist,vrf-pwan,l3out-pwandist,exepg-pwandist,WAN Dist,OSPF,0.0.0.0/0,0.0.0.0/0,-,-,0,Regular,多摩本番 Leaf(Border)#1,nwtm-i9318-zlfb1011,logic-nd-101,11.23.16.18,Eth1/09,Port,-,logic-int-prof-101-09,ospf-int-pol-101-09,-,100,Point-to-point,1,4,1,1,Routed Interface,-,11.23.16.1/30,-,1592,Trunk(tag付き),nwtm-r7609-zjwd010,Te3/7,本番業務面情報系,Level1,
+,,,,,,,,,,,,,,,,,,Eth1/10,Port,-,,,-,250,Point-to-point,1,4,1,1,Routed Interface,-,11.23.16.9/30,-,1592,Trunk(tag付き),nwtm-r7609-zjwd020,Te3/7,,,
+,,,,,,,,,,,,,,多摩本番 Leaf(Border)#2,nwtm-i9318-zlfb1022,logic-nd-102,11.23.16.19,Eth1/09,Port,-,logic-int-prof-102-09,ospf-int-pol-102-09,-,250,Point-to-point,1,4,1,1,Routed Interface,-,11.23.16.13/30,-,1592,Trunk(tag付き),nwtm-r7609-zjwd010,Te4/7,,,
+,,,,,,,,,,,,,,,,,,Eth1/10,Port,-,,,-,100,Point-to-point,1,4,1,1,Routed Interface,-,11.23.16.5/30,-,1592,Trunk(tag付き),nwtm-r7609-zjwd020,Te4/7,,,

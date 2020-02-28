@@ -1,0 +1,348 @@
+別冊xx_収容システム一覧,,,,,
+リビジョン,担当,変更日,区分,内容,実機反映
+r0.01,小松,2017/8/18,修正,"収容EPG一覧(多摩)シート
+収容EPG一覧(千葉本)シート
+・開発運用面のVM6_管理LANのVLANを1800→1400に変更
+・開発運用面のVM6_CMM/IMMのVLANを1801→1401に変更",済
+r0.02,小松,2017/8/21,修正,"収容EPG一覧(千葉開)シート
+・GOB Leafの追加",済
+r0.03,小松,2017/8/22,修正,"全シート
+・社内確認用の網掛を削除",-
+r0.04,小松,2017/8/23,修正,"収容EPG一覧(多摩)シート
+収容EPG一覧(千葉本)シート
+・本番運用面のVM6_管理LANのEPGをグレー網掛
+・本番運用面のVM6_CMM/IMMのEPGをグレー網掛
+　※本昇とVLAN重複のため、本番昇格のタイミングで設定投入する
+収容外部EPG一覧(多摩)
+・本番・開発運用面のDist接続とのルータID、VLAN IDを新規追加、セグメントを修正
+収容外部EPG一覧(千葉本)
+・本番・開発運用面のDist接続とのルータID、VLAN IDを新規追加",済
+r0.05,小松,2017/8/25,修正,"収容外部EPG一覧(千葉開)
+・開発統合バックアップの通信要件反映
+　※参考資料：【差替3】（17-K0382）開発_ネットワーク利用申請","2017/8/25
+済"
+r0.06,小松,2017/8/29,修正,"収容外部EPG一覧(多摩)
+収容外部EPG一覧(千葉本)
+収容外部EPG一覧(千葉開)
+・ESGとのOSPF接続に必要なパラメータ(収容ポート、接続先情報)を追加
+　※参考資料：【課題61】クラスタ配置.xlsx(8/7の2部定例資料)",
+r0.07,佐藤,8/30,修正,"収容EPG一覧(多摩)
+・bd-vxlanのIPアドレスを「11.12.192.0/22」→「11.12.192.1/22」に変更
+・tm-topeのEPG2つのCustomQoSを「custom-qos-pope-pol」→「custom-qos-test-pol」に修正
+コントラクト一覧(多摩)
+・コントラクト名修正　「cont-uni-epg-mgmtLAN」→「cont-uni-epg-tmgmtLAN」
+・コントラクト名修正　「cont-uni-epg-cmmimm」→「cont-uni-epg-tcmmimm」
+",
+r0.08,瀬尾,8/30,修正,"収容VRF一覧シート：テナント用のDescriptionを追加
+QoSポリシ一覧：最新版に更新（custom-qos-vinf-pol、custom-qos-pbak-pol）を追加","Description用未
+QoSは済"
+r0.09,佐藤,9/6,修正,"コントラクト一覧(千葉開)
+・cont-uni-epg-tmgmtLANの宛先にepg-tcmmimmを追加
+・cont-uni-epg-tcmmimmの宛先にepg-tmgmtLANを追加",
+r0.10,佐藤,9/21,修正,"コントラクト一覧(千葉本)
+・cont-uni-epg-tmgmtLANの宛先にepg-tcmmimmを追加
+・cont-uni-epg-tcmmimmの宛先にepg-tmgmtLANを追加
+コントラクト一覧(多摩)
+・cont-uni-epg-tmgmtLANの宛先にepg-tcmmimmを追加
+・cont-uni-epg-tcmmimmの宛先にepg-tmgmtLANを追加
+収容外部EPG一覧(多摩)
+収容外部EPG一覧(千葉本)
+収容外部EPG一覧(千葉開)
+・ESG接続用SVI追加",
+r0.11,佐藤,10/6,修正,"収容外部EPG一覧(多摩)
+・tm-pope > l3out-popedist 配下のVLAN IDを修正
+収容外部EPG一覧(千葉本)
+・ch-pope > l3out-popedist 配下のVLAN IDを修正
+「【VM6】ACI接続セグメント一覧_兼IPアドレス採番_v1.3」より",
+r0.12,佐藤,10/23,修正,"収容EPG一覧(千葉開)
+・FRTB(GOB)4セグメント追加
+コントラクト一覧(千葉開)
+・FRTB(GOB)3セグメント追加（統合バックアップのみ除外）
+・全シート
+・「2部様にて記載」「3部様にて記載」の塗りつぶし削除
+・記載例削除",
+r0.13,佐藤,11/1,修正,"収容外部EPG一覧(全ファブリック)
+・Path Typeのセルを選択式に修正、BorderLeaf向けのものは「Direct Port Channel」に変更
+・「Path（PC/ｖPC)」の列追加、BorderLeaf向けのものにインターフェースポリシーグループを記載",
+r0.14,佐藤,1/9,修正,"収容EPG一覧(千葉本)
+・仮想インフラテナントのIPアドレス修正",
+r0.15,佐藤,1/11,修正,"収容EPG一覧(全ファブリック)
+・疎通確認用L3SW接続セグメント追加
+コントラクト一覧(全ファブリック)
+・疎通確認用L3SW接続用コントラクト追加",
+r0.16,佐藤,1/31,修正,"収容EPG一覧(多摩、千葉本)
+・本番運用EPG追加(本番昇格）
+収容外部EPG一覧(多摩、千葉本)
+・pbakのスタティックルート追加
+　※参考資料：ネットワーク利用申請_VM6本番_20180127反映_v6_20180112修正.xlsx",
+r0.17,吉田,10/23,修正,"収容EPG一覧(多摩、千葉本)
+・Synergy案件の本昇運用BD,EPG追加
+・Synergy案件の本番運用BD,EPG追加（本昇時に追加するものを予め記載）
+コントラクト一覧(多摩、千葉本)
+・Synergy案件の本昇運用コントラクト追加
+・Synergy案件の本番運用コントラクト追加（本昇時に追加するものを予め記載）",
+r0.18,小松,2018/11/8,修正,"収容外部EPG一覧(多摩、千葉本、千葉開発)
+・クラウドHUB案件のASRとのL3接続用にL3outを追加
+コントラクト一覧(多摩、千葉本、千葉開発)
+・クラウドHUB案件のASRとのL3接続用L3outをvzAnyに接続するためのContractを追加",
+r1,杉山,2018/11/27,修正,"収容EPG一覧(千葉開)
+・RMDS案件のEPG,BDを追加
+コントラクト一覧(千葉開)
+・RMDS案件のContractを追加",
+r2,杉山,2019/01/21,修正,"収容EPG一覧(多摩、千葉開発)
+・NMS案件(支援サーバ)のEPG,BDを追加
+コントラクト一覧(多摩、千葉開)
+・NMS案件(支援サーバ)のContractを追加",
+r3,杉山,2019/02/15,修正,"収容EPG一覧(多摩、千葉本)
+・NMS案件のEPG,BDを追加
+コントラクト一覧(多摩、千葉本)
+・NMS案件のContractを追加
+",
+r4,杉山,2019/02/18,修正,"収容EPG一覧(千葉本)
+・NMS案件のEPG""epg-tNMSTransferServer2""のport-1/3⇒1/2に修正
+",
+r5,杉山,2019/02/20,修正,"収容EPG一覧(多摩、千葉本)
+・NMS案件のEPG,BDのセグメント名修正
+コントラクト一覧(多摩、千葉本)
+・NMS案件のContractにつき追記
+
+",
+r6,杉山,2019/03/06,修正,"・NMS案件にて以下につき新規NMSテナント(tm-pnms/ch-pnms)作成
+収容EPG一覧(多摩、千葉本)
+収容外部EPG一覧(多摩、千葉本)
+コントラクト一覧(多摩、千葉本)
+
+",
+r7,杉山,2019/03/12,修正,"・NMS案件にて以下につきNMSテナント(tm-pnms)の以下シートを精緻化
+収容外部EPG一覧(多摩)
+",
+r8,杉山,2019/03/12,修正,"・NMS案件にて以下につきNMSテナント(tm-pnms)の以下シートを精緻化
+収容EPG一覧(多摩、千葉本)⇒J列につき修正
+ l3out-pnmsdist⇒l3out-tnmsdist
+※本番Dist接続のタイミングでl3out-pnmsdistを新規作成する予定。
+",
+r9,杉山,2019/03/12,修正,"・NMS案件にて以下につきNMSテナント(tm-pnms)の以下シートを精緻化
+収容EPG一覧(多摩)⇒M列につき修正
+(修正前)
+bd-ptNMS_PORTALunyo
+bd-ptNMS_Replication
+(修正後)
+bd-pNMS_PORTALunyo
+bd-pNMS_Replication
+
+",
+r10,杉山,2019/03/15,修正,"・NMS案件にて以下につきNMSテナント(tm-pnms)の以下シートをvlan修正
+外部収容EPG一覧(多摩、千葉本)
+（変更前⇒変更後）
+3964⇒3950
+3965⇒3951
+3966⇒3952
+3967⇒3953
+3968⇒3942
+3969⇒3943
+3970⇒3944
+3971⇒3945
+
+",
+r11,丹波,2019/04/16,追加,"次期外決案件にてESG用のL3Out設定を追加(千葉開発)
+■収容外部EPG一覧(千葉開)
+
+SynergyとのL3Out設定追加(対向機器名称未記載)
+千葉開発勘定…l3out-taccesg2、l3out-taccesg3追記
+千葉開発運用…l3out-taccesg2、l3out-taccesg3追記
+
+■コントラクト一覧(千葉開)
+
+外部EPG(ESG2およびESG3)のコントラクト追記
+千葉開発勘定…cont-both-topeesg2-vzany、cont-both-topeesg3-vzany
+千葉開発運用…cont-both-topeesg2-vzany、cont-both-topeesg3-vzany
+",
+r12,NOS 大澤,2019/04/16,修正,"収容EPG一覧(多摩)
+・収容EPG一覧(多摩)_暫定リリース(既存Leaf)に一時名称変更
+・M'intra2020案件のEPG,BDを追加
+コントラクト一覧(多摩)
+・M'intra2020案件のContractを追加",
+r13,NOS,2019/06/13,修正,"収容EPG一覧(多摩)
+・収容EPG一覧(多摩)_本番リリース(新規Leaf)を追加",
+r14,柏原,2019/7/2,修正,"収容EPG一覧(多摩)_暫定リリース(既存Leaf)
+・tm-pnmsに下記BDを追加
+  bd-pNMS_BigipVip_ISE
+・tm-pnmsの各BDのAssociated L3outを下記に変更
+  l3out-pnmsdist
+
+収容EPG一覧(千葉本)
+・tm-pnmsの各BDのAssociated L3outを下記に変更
+  l3out-pnmsdist
+",
+r15,"CS原田
+(r12)",2019/4/25,修正,"収容EPG一覧(多摩、千葉本)
+・Synergy案件の本番運用BD,EPG追加（本昇時に追加するものを予め記載）の修正
+コントラクト一覧(多摩、千葉本)
+・Synergy案件の本番運用コントラクト追加（本昇時に追加するものを予め記載）の修正",
+r16,"CS原田
+(r11)",2019/4/12,追加,"収容EPG一覧(千葉開)
+・次期外決案件のEPG,BDを追加
+コントラクト一覧(千葉開)
+・次期外決案件のContractを追加",
+r17,"CS松田
+(r2.1)",2019/2/7,修正,"収容EPG一覧(多摩)
+　・本番運用面テナントのリモートサポート内側セグメントのIPアドレス(GW）の修正
+　　　11.18.128.128/28　→　11.18.128.129/28
+　・本番運用面テナントのリモートサポート内側セグメントに""Associated L3out""の情報を追記
+　・本昇運用面テナントのリモートサポート内側セグメントに""Associated L3out""の情報を追記
+収容EPG一覧(千葉本)
+　・本番運用テナントのリモートサポート内側セグメントのIPアドレス(GW）の修正
+　　　11.18.128.128/28　→　11.42.128.129/28
+　・本番運用面テナントのリモートサポート内側セグメントに""Associated L3out""の情報を追記
+　・本昇運用面テナントのリモートサポート内側セグメントに""Associated L3out""の情報を追記
+全シート
+　印字枠外に構築予定、削除予定の欄を追加",
+r18,"CS松田
+(r2.2)",2019/2/12,追加,"収容EPG一覧(千葉開)
+・NMS案件(本体 IA仮想)のEPG,BDを追加
+コントラクト一覧(千葉開)
+・NMS案件(本体 IA仮想)のContractを追加",
+r19,柏原,2019/8/5,追加,"収容EPG一覧(千葉本)に下記EPGを追加
+・epg-tNMS_NMkanshi
+・epg-tNMS_NMunyo
+
+コントラクト一覧(千葉本)に下記Contractを追加
+・cont-uni-epg-tNMS_NMkanshi
+・cont-uni-epg-tNMS_NMunyo
+",
+r20,柏原,2019/9/9,追加,"下記シートに新規テナントを追加
+■収容EPG一覧(多摩)_暫定リリース(既存Leaf)/コントラクト一覧(多摩)
+・tm-pwan
+
+■収容EPG一覧(千葉本)/コントラクト一覧(千葉)
+・ch-pwan
+
+下記シートにEPG、BD、Contractを追加（次期外決、Exadata X8）
+■収容EPG一覧(多摩)_暫定リリース(既存Leaf)
+・tm-tope
+　epg-tama_kanriLAN2
+　epg-vSAN
+・tm-vinf
+　epg-chiba_kanriLAN2
+
+■収容EPG一覧(多摩)_新規Leaf
+・tm-tope
+　epg-texadata_unyo-1～8
+　epg-texadata_kanri
+・tm-tinf
+　epg-texadata_gyomu-1～8
+
+■収容EPG一覧(千葉本)
+・ch-tope
+　epg-chiba_kanriLAN2
+　epg-vSAN
+・ch-vinf
+　epg-tama_kanriLAN2
+
+",
+,,,,"■コントラクト一覧(多摩)
+・tm-tope
+　cont-uni-epg-tama_kanriLAN2
+　cont-uni-epg-vSAN
+　cont-uni-epg-texadata_unyo-1～8
+　cont-uni-epg-texadata_kanri
+・tm-vinf
+　cont-uni-epg-chiba_kanriLAN2
+・tm-tinf
+　cont-uni-epg-texadata_gyomu-1～8
+
+■コントラクト一覧(千葉本)
+・ch-tope
+　cont-uni-epg-chiba_kanriLAN2
+　cont-uni-epg-vSAN
+・ch-vinf
+　cont-uni-epg-tama_kanriLAN2
+
+
+下記Contractに宛先EPGを追加（M'intra ST通信要件対応）
+■コントラクト一覧(多摩)
+・tm-tope
+cont-uni-epg-tDHCP_m2020
+cont-uni-epg-tVMKernel_m2020
+cont-uni-epg-tvMotion_m2020
+",
+r21,柏原,2019/9/13,追加,"コントラクト一覧(多摩)
+tm-tinf、tm-topeの「宛先システム」「宛先EPG」を追加
+
+コントラクト一覧(千葉開)
+ch-tinft、ch-topetにコントラクト追加
+",
+r22,柏原,2019/9/27,追加,"収容外部EPG一覧(多摩)
+ tm-tacc,tm-tope,tm-pwanに外部EPGを追加
+
+収容外部EPG一覧(千葉本)
+ ch-tacc,ch-tope,ch-pwanに外部EPGを追加
+
+コントラクト一覧(多摩)
+ tm-tacc,tm-tope,tm-pwanにContractを追加
+
+コントラクト一覧(千葉本)
+ ch-tacc,ch-tope,ch-pwanに外部Contractを追加
+
+収容VRF一覧
+ tm-pwan,ch-pwanを追加",
+r23,柏原,2019/10/10,追加,"収容EPG一覧(千葉本)
+ ch-topeのbd-tNMS_NMkanshi、bd-tNMS_NMunyoをグレーアウト
+
+収容EPG一覧(多摩)_新規Leaf、収容EPG一覧(多摩)_暫定リリース(既存Leaf)
+ 収容EPG一覧(多摩)に統合
+",
+r24,柏原,2019/11/21,追加,"収容EPG一覧(千葉本)
+ch-tope,ch-tinf,ch-tbakのEPGを追加
+
+コントラクト一覧(千葉本)
+ch-tope,ch-tinf,ch-tbakのContractを追加",
+r25,柏原,2019/12/10,追加,"収容EPG一覧(千葉開)
+ ch-tinft/ch-topetにBD/EPGを追加
+
+コントラクト一覧(千葉開)
+ ch-tinft/ch-topetにContractを追加
+",
+r26,柏原,2019/12/20,追加,"収容外部EPG一覧(多摩)
+　l3out-pinfasr01の対象ポートを追加
+
+収容EPG一覧(多摩)
+　tm-popeに下記EPGを追加
+・epg-pDHCP_m2020
+・epg-pVMKernel_m2020
+・epg-pvMotion_m2020
+
+　tm-pinfに下記EPGを追加
+epg-pHitachiSV_m2020
+epg-pstorage_m2020
+",
+r27,小峰,2020/1/8,追加,"コントラクト一覧(多摩)
+tm-pinfに下記コントラクトを追加
+cont-uni-epg-pHitachiSV_m2020
+cont-uni-epg-pstorage_m2020
+
+tm-popeに下記コントラクトを追加
+cont-uni-epg-pDHCP_m2020
+cont-uni-epg-pVMKernel_m2020
+cont-uni-epg-pvMotion_m2020",
+r28,柏原,2020/1/14,修正,"収容EPG一覧(千葉開)
+
+下記EPGの収容Leafを4051/4062から4011/4022に変更
+epg-purestorage_iSCSI
+epg-purestorage_unyokanri",
+r29,小峰,2020/1/30,修正,"収容EPG一覧(千葉開)
+
+下記EPGの対象ポートを追加。
+bd-purestorage_unyokanri
+bd-purestorage_iSCSI",
+r30,小峰,2020/1/31,修正,"収容EPG一覧(千葉開)
+
+下記EPGのEth33-36のPath Typeを修正。
+bd-purestorage_unyokanri
+bd-purestorage_iSCSI",
+r31,小峰,2020/2/5,追加,"収容EPG一覧(多摩)/収容EPG一覧(千葉本)に下記EPGを追加。
+epg-purestorage_iSCSI
+epg-purestorage_unyokanri",
+r32,小峰,2020/2/5,追加,"コントラクト一覧(多摩)/コントラクト一覧(千葉本)に下記コントラクトを追加。
+cont-uni-epg-purestorage_unyokanri
+cont-uni-epg-purestorage_iSCSI",

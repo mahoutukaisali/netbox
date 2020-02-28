@@ -1,4 +1,0 @@
----
-# vars file for netbox
-# pynetbox をインストールした venv 環境の python インタープリターを指定
-ansible_python_interpreter: ~/pyenv/bin/python

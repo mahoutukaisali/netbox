@@ -1,0 +1,39 @@
+,,,,,,,
+,,収容VRF一覧,,,,,
+,,,,,,,
+,Fabric ,テナント名,tenant,Description,VRF名,OSPF Timers,備考
+,,,,,,,
+,多摩本番,本番業務面勘定系,tm-pacc,homban_gyomu_kanjo,tm-pacc：vrf-pacc,vrf-pacc-ospf-timer,
+,,本番業務面情報系,tm-pinf,homban_gyomu_joho,tm-pinf：vrf-pinf,vrf-pinf-ospf-timer,
+,,本番運用面,tm-pope,homban_unyo,tm-pope：vrf-pope,vrf-pope-ospf-timer,
+,,本昇業務面勘定系,tm-tacc,honsho_gyomu_kanjo,tm-tacc：vrf-tacc,vrf-tacc-ospf-timer,
+,,本昇業務面情報系,tm-tinf,honsho_gyomu_joho,tm-tinf：vrf-tinf,vrf-tinf-ospf-timer,
+,,本昇運用面,tm-tope,honsho_unyo,tm-tope：vrf-tope,vrf-tope-ospf-timer,
+,,仮想インフラ,tm-vinf,kaso_infra,tm-vinf：vrf-vinf,-,
+,,"統合バックアップ
+（本番業務面情報系）",tm-pbak,homban_togo_bak,tm-pbak：vrf-pbak,-,
+,,本番NMS,tm-pnms,homban_nms,tm-pnms：vrf-pnms,vrf-pnms-ospf-timer,
+,,WAN Dist,tm-pwan,homban_wan_dist,tm-pwan：vrf-pwan,vrf-pwan-ospf-timer,
+,Fabric ,テナント名,tenant,Description,VRF名,OSPF Timers,備考
+,,,,,,,
+,千葉災対,本番業務面勘定系,ch-pacc,homban_gyomu_kanjo,ch-pacc：vrf-pacc,vrf-pacc-ospf-timer,
+,,本番業務面情報系,ch-pinf,homban_gyomu_joho,ch-pinf：vrf-pinf,vrf-pinf-ospf-timer,
+,,本番運用面,ch-pope,homban_unyo,ch-pope：vrf-pope,vrf-pope-ospf-timer,
+,,本昇業務面勘定系,ch-tacc,honsho_gyomu_kanjo,ch-tacc：vrf-tacc,vrf-tacc-ospf-timer,
+,,本昇業務面情報系,ch-tinf,honsho_gyomu_joho,ch-tinf：vrf-tinf,vrf-tinf-ospf-timer,
+,,本昇運用面,ch-tope,honsho_unyo,ch-tope：vrf-tope,vrf-tope-ospf-timer,
+,,仮想インフラ,ch-vinf,kaso_infra,ch-vinf：vrf-vinf,-,
+,,"統合バックアップ
+（本番業務面情報系）",ch-pbak,homban_togo_bak,ch-pbak：vrf-pbak,-,
+,,"統合バックアップ
+（本昇業務面情報系）",ch-tbak,honsho_togo_bak,ch-tbak：vrf-tbak,-,
+,,本番NMS,ch-pnms,homban_nms,ch-pnms：vrf-pnms,vrf-pnms-ospf-timer,
+,,WAN Dist,ch-pwan,homban_wan_dist,ch-pwan：vrf-pwan,vrf-pwan-ospf-timer,
+,Fabric ,テナント名,tenant,Description,VRF名,OSPF Timers,備考
+,,,,,,,
+,千葉開発,開発業務面勘定系,ch-tacct,kaihatsu_gyomu_kanjo,ch-tacct:vrf-tacc,vrf-tacc-ospf-timer,
+,,開発業務面情報系,ch-ｔinft,kaihatsu_gyomu_joho,ch-ｔinft:vrf-tinf,vrf-tinf-ospf-timer,
+,,開発運用面,ch-ｔopet,kaihatsuo_unyo,ch-ｔopet:vrf-tope,vrf-tope-ospf-timer,
+,,仮想インフラ,ch-vinft,kaso_infra,ch-vinft:vrf-vinf,-,
+,,"統合バックアップ
+（開発業務面情報系）",ch-tbakt,kaihatsu_togo_bak,ch-tbakt:vrf-tbak,-,
