@@ -34,13 +34,15 @@ def netbox_device(hostname, role, model):
     ## Get device info if it is exist in netbox
     ##　全く同じ名前で複数登録できてしまうのでこの工程は必要
     nb_device = netbox.dcim.devices.get(name=hostname)
-   
+    
+
     ## Device manufacturer must be associated with created device
     #if nb_device is None:
         #
 
         ## Create device in netbox if it doesn't exist
     if nb_device is None:
+        ## device_type does't mean create device. This define manufacturer and model
         nb_manufacturer = netbox_manufacturer("Cisco")
         device_slug=(
             str(hostname).lower()
