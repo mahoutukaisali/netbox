@@ -17,48 +17,52 @@ netbox = pynetbox.api(url=NETBOXURL, token=NETBOXTOKEN)
 def netbox_manufacturer(name):
     ## 登録されているデバイスの製造メーカの情報を取得
     nb_manufacturer = netbox.dcim.manufacturers.get(name=name)
-
+    
     ## 意図したメーカーの登録がなければ作成
     if nb_manufacturer is None:
         nb_manufacturer = netbox.dcim.manufacturers.create(
             name=name
         )
+    else:
+        pass
+    
     return nb_manufacturer
 
-def netbox_device(manufacturer, hostname, role):
+def netbox_device(hostname, role, model):
     """Get and Create a device in netbox based on a Parameter Sheet."""
 
     ## Get device info if it is exist in netbox
     ##　全く同じ名前で複数登録できてしまうのでこの工程は必要
     nb_device = netbox.dcim.devices.get(name=hostname)
-
+   
     ## Device manufacturer must be associated with created device
-    if nb_device is None:
-        nb_manufacturer = netbox_manufacturer("Cisco")
+    #if nb_device is None:
+        #
 
         ## Create device in netbox if it doesn't exist
-        if nb_device is None:
-            device_slug=(
-                str(hostname).lower()
-                .replace(" ", "-")
-                .replace(",", "-")
-                .replace(".", "_")
-                .replace("(", "_")
-                .replace(")", "_")
-                .replace("ー", "-")
-            )
+    if nb_device is None:
+        nb_manufacturer = netbox_manufacturer("Cisco")
+        device_slug=(
+            str(hostname).lower()
+            .replace(" ", "-")
+            .replace(",", "-")
+            .replace(".", "_")
+            .replace("(", "_")
+            .replace(")", "_")
+            .replace("ー", "-")
+        )
 
-            nb_device_type = netbox.dcim.device_types.create(
-                manufacturer=nb_manufacturer.id,
-                ## fix after conforming parameter sheet format
-                model="N9K",
-                display_name=hostname,
-                ## this is rack unit parameter. make sure what does mean of later.
-                u_height=1,
-                slug=device_slug,
-                subdevice_role=role
-
-            )
+        nb_device_type = netbox.dcim.device_types.create(
+            #manufacturer=nb_manufacturer.id,
+            manufacturer=nb_manufacturer.id,
+            ## fix after conforming parameter sheet format
+            model=model,
+            display_name=hostname,
+            ## this is rack unit parameter. make sure what does mean of later.
+            u_height=1,
+            slug=device_slug,
+            subdevice_role=role
+        )
 
     return nb_device_type
 
