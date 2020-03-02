@@ -17,7 +17,7 @@ netbox = pynetbox.api(url=NETBOXURL, token=NETBOXTOKEN)
 def netbox_manufacturer(name):
     ## 登録されているデバイスの製造メーカの情報を取得
     nb_manufacturer = netbox.dcim.manufacturers.get(name=name)
-    
+
     ## 意図したメーカーの登録がなければ作成
     if nb_manufacturer is None:
         nb_manufacturer = netbox.dcim.manufacturers.create(
@@ -25,16 +25,16 @@ def netbox_manufacturer(name):
         )
     else:
         pass
-    
+
     return nb_manufacturer
 
-def netbox_device(hostname, role, model):
+def netbox_device(manufacturer, hostname, role, model):
     """Get and Create a device in netbox based on a Parameter Sheet."""
 
     ## Get device info if it is exist in netbox
     ##　全く同じ名前で複数登録できてしまうのでこの工程は必要
     nb_device = netbox.dcim.devices.get(name=hostname)
-    
+
 
     ## Device manufacturer must be associated with created device
     #if nb_device is None:
@@ -43,7 +43,11 @@ def netbox_device(hostname, role, model):
         ## Create device in netbox if it doesn't exist
     if nb_device is None:
         ## device_type does't mean create device. This define manufacturer and model
-        nb_manufacturer = netbox_manufacturer("Cisco")
+        #nb_manufacturer = netbox_manufacturer("Cisco")
+        nb_manufacturer = netbox.dcim.manufacturers.get(name=manufacturer)
+        role = netbox.dcim.device_roles.get(name=role)
+        model = netbox.dcim.device_type.get(name=model)
+
         device_slug=(
             str(hostname).lower()
             .replace(" ", "-")
@@ -58,12 +62,12 @@ def netbox_device(hostname, role, model):
             #manufacturer=nb_manufacturer.id,
             manufacturer=nb_manufacturer.id,
             ## fix after conforming parameter sheet format
-            model=model,
+            model=model.id,
             display_name=hostname,
             ## this is rack unit parameter. make sure what does mean of later.
             u_height=1,
             slug=device_slug,
-            subdevice_role=role
+            subdevice_role=role.id
         )
 
     return nb_device_type
