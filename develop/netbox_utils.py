@@ -21,7 +21,8 @@ def netbox_manufacturer(name):
     ## 意図したメーカーの登録がなければ作成
     if nb_manufacturer is None:
         nb_manufacturer = netbox.dcim.manufacturers.create(
-            name=name
+            name=name,
+            slug=name
         )
     else:
         pass
@@ -35,15 +36,11 @@ def netbox_device(manufacturer, hostname, role, model):
     ##　全く同じ名前で複数登録できてしまうのでこの工程は必要
     nb_device = netbox.dcim.devices.get(name=hostname)
 
-
-    ## Device manufacturer must be associated with created device
-    #if nb_device is None:
-        #
-
-        ## Create device in netbox if it doesn't exist
+    ## Create device in netbox if it doesn't exist
     if nb_device is None:
-        ## device_type does't mean create device. This define manufacturer and model
+        ## device_type does't mean create device. This defines manufacturer and model
         #nb_manufacturer = netbox_manufacturer("Cisco")
+        ## device will be associated these three types of data so retrieve first
         nb_manufacturer = netbox.dcim.manufacturers.get(name=manufacturer)
         role = netbox.dcim.device_roles.get(name=role)
         model = netbox.dcim.device_type.get(name=model)
@@ -70,7 +67,30 @@ def netbox_device(manufacturer, hostname, role, model):
             subdevice_role=role.id
         )
 
-    return nb_device_type
+        return nb_device_type
+
+#def netbox_interface(hostname, interface, type, enable, lag, description, mtu, mac_address, 802_1qmode):
+def netbox_interface(hostname, interface, description):
+    """Get and Create interfaces in netbox based on a Parameter Sheet."""
+    
+    ## To associate with device which is already exists, once retrieve its device
+    nb_device = netbox.dcim.devices.get(name=hostname)
+    nb_interface = netbox.dcim.interfaces.get(
+            device_id=nb_device.id, 
+            name=interface,
+            description=description
+        )
+    
+    #nb_interface_name = netbox.dcim.devices.get(name=interface)
+    ## もしデバイスのインターフェイスが存在しなければcreateする
+    if nb_interface is None:
+        nb_interface = netbox.dcim.interfaces.create(
+                device=nb_device.id, 
+                name=interface, 
+                description=description
+            )
+
+        return nb_interface
 
 #all_prefixes = nb.dcim.devices.all()
 #

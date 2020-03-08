@@ -13,12 +13,10 @@ if __name__ == "__main__":
         dictData = csv.DictReader(f)
         try:
             manufacturer = "test"
-            print(netbox_manufacturer(manufacturer))
-
-            print('Sucees: netbox_manufacturer')
+            netbox_manufacturer(manufacturer)
+            print('Success. The function name: netbox_manufacturer')
         except:
             print('Failed: netbox_manufacturer')
-            print(netbox_manufacturer(manufacturer))
 
         for data in dictData:
             ## あとでパラシから取り込めるようにする
@@ -28,11 +26,19 @@ if __name__ == "__main__":
                 #role = "本番勘定_疎通確認"
                 role = "core"
                 model = "NSX"
-                print(netbox_device(manufacturer, hostname, role, model))
-                print('Sucees: netbox_device')
+                netbox_device(manufacturer, hostname, role, model)
+                print('Success. The function name: netbox_device')
             except:
-                print('Failed: netbox_device')
-                #print(netbox_device(hostname, role, model))
+                print('Failed. The fuction name: netbox_device')
+            
+            try:
+                interface = 'ge-0/0/0'
+                description = "mgmt_only"
+                netbox_interface(hostname, interface, description)
+                print('Success. The fuction name: netbox_device')
+            except:
+                print('Failed. The fuction name: netbox_interface')
+                print(netbox_interface(hostname, interface, description))
 
 
 
