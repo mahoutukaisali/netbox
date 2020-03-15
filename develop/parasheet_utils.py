@@ -11,39 +11,45 @@ if __name__ == "__main__":
 
     with open(csv_parameter_sheet, 'r') as f:
         dictData = csv.DictReader(f)
-        try:
-            manufacturer = "test"
-            netbox_manufacturer(manufacturer)
-            print('Success. The function name: netbox_manufacturer')
-        except:
-            print('Failed: netbox_manufacturer')
 
         for data in dictData:
             ## あとでパラシから取り込めるようにする
             try:
-                manufacturer = "Cisco"
-                hostname = "nwtm"
-                #role = "本番勘定_疎通確認"
-                role = "core"
-                model = "NSX"
-                netbox_device(manufacturer, hostname, role, model)
-                print('Success. The function name: netbox_device')
+              manufacturer = data.get('manufacturer')
+              create_netbox_manufacturer(manufacturer)
+              print('Success. The function name: netbox_manufacturer')
             except:
-                print('Failed. The fuction name: netbox_device')
-            
+              print('Failed: netbox_manufacturer')
+              
+            ## Create data of device modle such as catalyst, F5 etc.
             try:
-                interface = 'ge-0/0/0'
-                description = "mgmt_only"
-                netbox_interface(hostname, interface, description)
-                print('Success. The fuction name: netbox_device')
+                manufacturer = data.get('manufacturer')
+                role = data.get('role')
+                model = data.get('model')
+                create_netbox_device_types(manufacturer, role, model)
+                print('Success. The function name: netbox_device_types')
             except:
-                print('Failed. The fuction name: netbox_interface')
-                print(netbox_interface(hostname, interface, description))
+                print('Failed. The fuction name: netbox_device_types')
 
-
-
-
-
-
-
-
+            try:
+                site = 'Minato'
+                tenant = '_tokyo'
+                device_role = 'core'
+                #hostname = data.get('hostname') 
+                hostname = 'S1'
+                create_netbox_device(hostname, device_role, tenant, site, device_type=model)
+                print('Success. The function name: create_netbox_device')
+            except:
+                create_netbox_device(hostname, device_role, tenant, site, device_type=model)
+                print('Failed. The fuction name: create_netbox_device')
+               
+            #try:
+            #    hostname = data.get('hostname')
+            #    interface = data.get('interface')
+            #    description = data.get("mgmt_only")
+            #    create_netbox_interface(hostname, interface, description)
+            #    print('Success. The fuction name: netbox_device')
+            #except:
+            #    print('Failed. The fuction name: netbox_interface')
+                
+                
