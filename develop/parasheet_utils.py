@@ -1,4 +1,8 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright (c) 2019 Lisa Oh
+# Released under the MIT license
+# https://opensource.org/licenses/mit-license.php
 
 from netbox_utils import *
 
@@ -30,6 +34,7 @@ if __name__ == "__main__":
                 print('Success. The function name: netbox_device_types')
             except:
                 print('Failed. The fuction name: netbox_device_types')
+                print(create_netbox_device_types(manufacturer, role, model))
 
             try:
                 site = 'Minato'

@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright (c) 2019 Lisa Oh
+# Released under the MIT license
+# https://opensource.org/licenses/mit-license.php
 import unittest
 
 from netbox_utils import *
@@ -35,37 +40,40 @@ if __name__ == '__main__':
     #unittest.main()
     #model = netbox.dcim.device_types.get(model='Catalyst')
     #model = netbox.dcim.device_types.all()
-    nb_device = netbox.dcim.devices.get(name='cat1')
+    #nb_device = netbox.dcim.devices.get(name='cat1')
     #print(nb_device)
     #print(model)
 
-    tenant_site_slug = (
-            ## tenant and site slug have common roles
-            str('Tokyo').lower()
-            .replace(" ", "-")
-            .replace(",", "-")
-            .replace(".", "_")
-            .replace("(", "_")
-            .replace(")", "_")
-            .replace("ー", "-")
-        )
-    print(netbox.tenancy.tenants.get(slug='tenant_site_slug', name='Tokyo'))
+    #tenant_site_slug = (
+    #        ## tenant and site slug have common roles
+    #        str('Tokyo').lower()
+    #        .replace(" ", "-")
+    #        .replace(",", "-")
+    #        .replace(".", "_")
+    #        .replace("(", "_")
+    #        .replace(")", "_")
+    #        .replace("ー", "-")
+    #    )
+    #print(netbox.tenancy.tenants.get(slug='tenant_site_slug', name='Tokyo'))
 
-    site = netbox.dcim.sites.get(name='Shinjyuku')
+    #site = netbox.dcim.sites.get(name='Shinjyuku')
     #site = netbox.dcim.sites.get(name='site_test', slug=tenant_site_slug)
     #print(site)
 
-    tenant = netbox.tenancy.tenants.get(name='test_tenant')
+    #tenant = netbox.tenancy.tenants.get(name='test_tenant')
     #print(tenant)
 
-    hostname = 'test_host'
+    #hostname = 'test_host'
 
-    nb_device_data = netbox.dcim.devices.create(
-            name = hostname,
-            tenant = tenant.id,
-            site = site.id,
-            device_role = 'test_role',
-            device_type = 'test_type'
-            #slug = device_slug
-        )
+    #nb_device_data = netbox.dcim.devices.create(
+    #        name = hostname,
+    #        tenant = tenant.id,
+    #        site = site.id,
+    #        device_role = 'test_role',
+    #        device_type = 'test_type'
+    #        #slug = device_slug
+    #    )
     #print(nb_device_data)
+
+    model = netbox.dcim.device_types.get(model='Nexus')
+    print(model)

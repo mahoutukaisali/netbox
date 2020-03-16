@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# Copyright (c) 2019 Lisa Oh
+# Released under the MIT license
+# https://opensource.org/licenses/mit-license.php
 
 import csv
 import os, sys
@@ -15,6 +18,20 @@ NETBOXTOKEN = login_info.get('NETBOXTOKEN')
 
 # Create netbox API object
 netbox = pynetbox.api(url=NETBOXURL, token=NETBOXTOKEN)
+
+def slug(value):
+    value_slug = (
+        str(value).lower()
+        .replace(" ", "-")
+        .replace(",", "-")
+        .replace(".", "_")
+        .replace("(", "_")
+        .replace(")", "_")
+        .replace("ー", "-")
+    )
+
+    return value_slug
+
 
 def create_netbox_manufacturer(name):
     ## 登録されているデバイスの製造メーカの情報を取得
@@ -45,23 +62,14 @@ def create_netbox_device_types(manufacturer, role, model):
         role = netbox.dcim.device_roles.get(name=role)
         ## name (str) – Name of endpoint passed to App().
         ## model (obj,optional) – Custom model for given app. <- cannot run this script multiple times with it
-        model = netbox.dcim.device_types.get(name=model)
 
-        device_slug=(
-            str(model).lower()
-            .replace(" ", "-")
-            .replace(",", "-")
-            .replace(".", "_")
-            .replace("(", "_")
-            .replace(")", "_")
-            .replace("ー", "-")
-        )
+        device_slug=(slug(model))
 
         nb_device_type = netbox.dcim.device_types.create(
             #manufacturer=nb_manufacturer.id,
             manufacturer=nb_manufacturer.id,
             ## fix after conforming parameter sheet format
-            model=model.id,
+            model=model,
             display_name=model,
             ## this is rack unit parameter. make sure what does mean of later.
             u_height=1,
@@ -83,39 +91,8 @@ def create_netbox_device(hostname, device_role, tenant, site, device_type=str):
         ## ex.) tenant == U.S.
         tenant_value = netbox.tenancy.tenants.get(name=tenant)
 
-        tenant_slug = (
-            ## tenant and site slug have common roles
-            str(tenant).lower()
-            .replace(" ", "-")
-            .replace(",", "-")
-            .replace(".", "_")
-            .replace("(", "_")
-            .replace(")", "_")
-            .replace("ー", "-")
-        )
-
-        site_slug = (
-            ## tenant and site slug have common roles
-            str(site).lower()
-            .replace(" ", "-")
-            .replace(",", "-")
-            .replace(".", "_")
-            .replace("(", "_")
-            .replace(")", "_")
-            .replace("ー", "-")
-        )
-        
-        device_slug = (
-            ## tenant and site slug have common roles
-            str(hostname).lower()
-            .replace(" ", "-")
-            .replace(",", "-")
-            .replace(".", "_")
-            .replace("(", "_")
-            .replace(")", "_")
-            .replace("ー", "-")
-        )
-
+        tenant_slug = (slug(tenant))
+        site_slug = (slug(site))
 
         if site_value == None:
             netbox.dcim.sites.create(name=site, slug=site_slug)
@@ -135,7 +112,7 @@ def create_netbox_device(hostname, device_role, tenant, site, device_type=str):
             device_role = device_role.id,
             device_type = device_type.id
         )
-        print(nb_device_data) 
+       
         return nb_device_data
 
 
