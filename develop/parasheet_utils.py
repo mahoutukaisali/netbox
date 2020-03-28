@@ -28,33 +28,31 @@ if __name__ == "__main__":
             ## Create data of device modle such as catalyst, F5 etc.
             try:
                 manufacturer = data.get('manufacturer')
-                role = data.get('role')
+                device_role = data.get('role')
                 model = data.get('model')
-                create_netbox_device_types(manufacturer, role, model)
+                create_netbox_device_types(manufacturer, device_role, model)
                 print('Success. The function name: netbox_device_types')
             except:
                 print('Failed. The fuction name: netbox_device_types')
-                print(create_netbox_device_types(manufacturer, role, model))
+                #print(create_netbox_device_types(manufacturer, role, model))
 
             try:
-                site = 'Minato'
-                tenant = '_tokyo'
-                device_role = 'core'
-                #hostname = data.get('hostname') 
-                hostname = 'S1'
+                site = data.get('site')
+                tenant = data.get('Tenant')
+                hostname = data.get('hostname')
                 create_netbox_device(hostname, device_role, tenant, site, device_type=model)
                 print('Success. The function name: create_netbox_device')
             except:
                 create_netbox_device(hostname, device_role, tenant, site, device_type=model)
                 print('Failed. The fuction name: create_netbox_device')
                
-            #try:
-            #    hostname = data.get('hostname')
-            #    interface = data.get('interface')
-            #    description = data.get("mgmt_only")
-            #    create_netbox_interface(hostname, interface, description)
-            #    print('Success. The fuction name: netbox_device')
-            #except:
-            #    print('Failed. The fuction name: netbox_interface')
+            try:
+                interface = data.get('interface')
+                description = data.get("interface_desctiption")
+                interface_type = data.get('interface_type')
+                create_netbox_interface(hostname, interface, interface_type)
+                print('Success. The fuction name: create_netbox_interface')
+            except:
+                print('Failed. The fuction name: create_netbox_interface')
                 
                 

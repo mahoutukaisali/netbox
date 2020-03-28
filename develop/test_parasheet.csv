@@ -1,4 +1,4 @@
-manufacturer,hostname,role,model,interface,description,type,status
-Cisco,r1,core,Catalyst,ge-0/0/0,mgmt-only,Multimode Fiber (OM3),Planned
-Cisco,r2,core,Nexus,ge-0/0/0,mgmt-only,Multimode Fiber (OM3),Planned
-Arista,r3,core,ios,ge-0/0/0,mgmt-only,Multimode Fiber (OM3),Planned
+manufacturer,hostname,role,model,interface,interface_description,interface_type,type,status,site,Tenant
+Cisco,r1,core,Catalyst,ge-0/0/0,mgmt-only,virtual,Multimode Fiber (OM3),Planned,Minato,Nagoya
+Cisco,r2,core,Nexus,ge-0/0/0,mgmt-only,lag,Multimode Fiber (OM3),Planned,Shinagawa,Osaka
+Arista,r3,core,ios,ge-0/0/0,mgmt-only,lag,Multimode Fiber (OM3),Planned,Toyosu,Hokkaido

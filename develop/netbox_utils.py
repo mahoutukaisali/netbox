@@ -52,7 +52,7 @@ def create_netbox_device_types(manufacturer, role, model):
     ## Get device info if it is exist in netbox
     ##　Catalystなどデバイスのモデルタイプの情報が既に存在するかどうか確認sるう
     nb_device = netbox.dcim.device_types.get(model=model)
-
+    
     ## Create device in netbox if it doesn't exist
     if nb_device is None:
         ## device_type does't mean create device. This defines manufacturer and model
@@ -81,7 +81,7 @@ def create_netbox_device_types(manufacturer, role, model):
 
 def create_netbox_device(hostname, device_role, tenant, site, device_type=str):
     nb_device = netbox.dcim.devices.get(name=hostname)
-
+    
     if nb_device == None:
         ## device role and types are already exists by above's functions.
         device_role = netbox.dcim.device_roles.get(name=device_role)
@@ -101,6 +101,8 @@ def create_netbox_device(hostname, device_role, tenant, site, device_type=str):
         
         ## To slug tenant argument, using variable name as tenant_slug
         if tenant_value == None:
+            
+            ## tenantが存在してなければslugも存在していないはず
             netbox.tenancy.tenants.create(name=tenant, slug=tenant_slug)
             ## redifine to get id
             tenant_value = netbox.tenancy.tenants.get(name=tenant)
@@ -117,27 +119,27 @@ def create_netbox_device(hostname, device_role, tenant, site, device_type=str):
 
 
 #def netbox_interface(hostname, interface, type, enable, lag, description, mtu, mac_address, 802_1qmode):
-def create_netbox_interface(hostname, interface, description):
+## This function is assumed which is executed after device is created
+def create_netbox_interface(hostname, interface, interface_type):
     """Get and Create interfaces in netbox based on a Parameter Sheet."""
-    
-    ## To associate with device which is already exists, once retrieve its device
     nb_device = netbox.dcim.devices.get(name=hostname)
     
+    ## To associate with device which is already exists, once retrieve its device
     nb_interface = netbox.dcim.interfaces.get(
-            device_id=nb_device, 
-            name=interface,
-            description=description
+            device=nb_device, 
+            name=interface
         )
     
-    #nb_interface_name = netbox.dcim.devices.get(name=interface)
-    ## もしデバイスのインターフェイスが存在しなければcreateする
-    if nb_device is None:
+    ## create interface if it's not already exists.
+    if nb_interface is None:
+        
+        ## interface type must be either lag or virtual.
         nb_interface = netbox.dcim.interfaces.create(
                 device=nb_device.id, 
-                name=interface, 
-                description=description
+                name=interface,
+                type=interface_type
             )
-        print(nb_interface)
+        
         return nb_interface
 
 #all_prefixes = nb.dcim.devices.all()
