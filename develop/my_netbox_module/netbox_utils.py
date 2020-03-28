@@ -7,7 +7,7 @@
 import csv
 import os, sys
 import pynetbox
-import credentials
+from . import credentials
 
 login_info = credentials.credentials()
 APIENDPOINT = login_info.get('APIENDPOINT')

@@ -76,16 +76,16 @@ if __name__ == '__main__':
     #print(nb_device_data)
 
     #model = netbox.dcim.device_types.get(model='Nexus')
-    nb_device = netbox.dcim.devices.get(name='nwtm')
+    nb_device = netbox.dcim.devices.get(name='r4')
     #nb_device_id = nb_device.id
-    #nb_interfaces = netbox.dcim.interfaces.all()
-    nb_interfaces = netbox.dcim.interfaces.get(
-            device=nb_device.id,
-            name='ge-0/0/0',
-            #type='virtual'
-            #description='mgmt_only'
-        )
+    nb_interfaces = netbox.dcim.interfaces.all()
+    #nb_interfaces = netbox.dcim.interfaces.get(
+    #        #device=nb_device,
+    #        name='ge-0/0/0'
+    #        #type='virtual'
+    #        #description='mgmt_only'
+    #    )
     
     #nb_interfaces = netbox.dcim.interfaces.all()
     
-    print(nb_interfaces.id)
+    print(nb_interfaces)

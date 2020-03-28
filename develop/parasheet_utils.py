@@ -10,14 +10,14 @@ if __name__ == "__main__":
     import csv
     import os
 
-    ## 読ませるパラシを指定して呼び出す
+    ## specify path of parameter_sheet which is csv file
     csv_parameter_sheet = sys.argv[1]
 
     with open(csv_parameter_sheet, 'r') as f:
         dictData = csv.DictReader(f)
 
         for data in dictData:
-            ## あとでパラシから取り込めるようにする
+            
             try:
               manufacturer = data.get('manufacturer')
               create_netbox_manufacturer(manufacturer)
@@ -34,7 +34,6 @@ if __name__ == "__main__":
                 print('Success. The function name: netbox_device_types')
             except:
                 print('Failed. The fuction name: netbox_device_types')
-                #print(create_netbox_device_types(manufacturer, role, model))
 
             try:
                 site = data.get('site')
@@ -50,9 +49,9 @@ if __name__ == "__main__":
                 interface = data.get('interface')
                 description = data.get("interface_desctiption")
                 interface_type = data.get('interface_type')
-                create_netbox_interface(hostname, interface, interface_type)
+                print(create_netbox_interface(hostname, interface, interface_type))
                 print('Success. The fuction name: create_netbox_interface')
             except:
                 print('Failed. The fuction name: create_netbox_interface')
-                
+                print(create_netbox_interface(hostname, interface, interface_type))
                 
