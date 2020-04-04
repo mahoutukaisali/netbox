@@ -62,7 +62,7 @@ if __name__ == "__main__":
               print('Success: create_netbox_interface')
             else:
               print('Failed: create_netbox_interface')
-          sys.exit(0)
+          sys.exit(1)
 
         elif args.arg2 == 'manufacturer':
           for data in dictData:

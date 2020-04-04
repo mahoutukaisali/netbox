@@ -1,3 +1,7 @@
 credentials.py
 test.py
 ./my_netbox_module/credentials.py
+
+## folders
+__pycache__
+.pytest_cache
