@@ -1,0 +1,110 @@
+{
+    "total_entries_displayed": 5,
+    "index": {
+        "1": {
+            "device_id": "dist3(9T0HLI1Q8E4)",
+            "duplex_mode": "full",
+            "vtp_management_domain": "",
+            "native_vlan": "",
+            "physical_location": "",
+            "system_name": "dist3",
+            "management_addresses": {
+                "172.16.30.57": {}
+            },
+            "interface_addresses": {
+                "172.16.30.57": {}
+            },
+            "capabilities": "Router Switch Supports-STP-Dispute",
+            "platform": "N9K-9000v",
+            "port_id": "mgmt0",
+            "local_interface": "mgmt0",
+            "hold_time": 126,
+            "software_version": "Cisco Nexus Operating System (NX-OS) Software, Version 9.2(2)",
+            "advertisement_ver": 2
+        },
+        "2": {
+            "device_id": "access5(9NSISF16ISB)",
+            "duplex_mode": "full",
+            "vtp_management_domain": "",
+            "native_vlan": "",
+            "physical_location": "",
+            "system_name": "access5",
+            "management_addresses": {
+                "172.16.30.52": {}
+            },
+            "interface_addresses": {
+                "172.16.30.52": {}
+            },
+            "capabilities": "Router Switch Supports-STP-Dispute",
+            "platform": "N9K-9000v",
+            "port_id": "mgmt0",
+            "local_interface": "mgmt0",
+            "hold_time": 174,
+            "software_version": "Cisco Nexus Operating System (NX-OS) Software, Version 9.2(2)",
+            "advertisement_ver": 2
+        },
+        "3": {
+            "device_id": "dist3(9T0HLI1Q8E4)",
+            "duplex_mode": "full",
+            "vtp_management_domain": "",
+            "native_vlan": "1",
+            "physical_location": "",
+            "system_name": "dist3",
+            "management_addresses": {
+                "172.16.30.57": {}
+            },
+            "interface_addresses": {
+                "172.16.30.57": {}
+            },
+            "capabilities": "Router Switch IGMP Filtering Supports-STP-Dispute",
+            "platform": "N9K-9000v",
+            "port_id": "Ethernet1/3",
+            "local_interface": "Ethernet1/3",
+            "hold_time": 165,
+            "software_version": "Cisco Nexus Operating System (NX-OS) Software, Version 9.2(2)",
+            "advertisement_ver": 2
+        },
+        "4": {
+            "device_id": "dist3(9T0HLI1Q8E4)",
+            "duplex_mode": "full",
+            "vtp_management_domain": "",
+            "native_vlan": "1",
+            "physical_location": "",
+            "system_name": "dist3",
+            "management_addresses": {
+                "172.16.30.57": {}
+            },
+            "interface_addresses": {
+                "172.16.30.57": {}
+            },
+            "capabilities": "Router Switch IGMP Filtering Supports-STP-Dispute",
+            "platform": "N9K-9000v",
+            "port_id": "Ethernet1/4",
+            "local_interface": "Ethernet1/4",
+            "hold_time": 165,
+            "software_version": "Cisco Nexus Operating System (NX-OS) Software, Version 9.2(2)",
+            "advertisement_ver": 2
+        },
+        "5": {
+            "device_id": "access5(9NSISF16ISB)",
+            "duplex_mode": "full",
+            "vtp_management_domain": "",
+            "native_vlan": "1",
+            "physical_location": "",
+            "system_name": "access5",
+            "management_addresses": {
+                "172.16.30.52": {}
+            },
+            "interface_addresses": {
+                "172.16.30.52": {}
+            },
+            "capabilities": "Router Switch IGMP Filtering Supports-STP-Dispute",
+            "platform": "N9K-9000v",
+            "port_id": "Ethernet1/4",
+            "local_interface": "Ethernet1/5",
+            "hold_time": 154,
+            "software_version": "Cisco Nexus Operating System (NX-OS) Software, Version 9.2(2)",
+            "advertisement_ver": 2
+        }
+    }
+}
