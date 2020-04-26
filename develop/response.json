@@ -1,0 +1,83 @@
+<pynetbox.api.Api object at 0x1050045c0>
+device id:  20
+interface_id:  61
+interface type:  100BASE-TX (10/100ME)
+interface type id:  800
+Ethernet1/76
+dist3
+interface_id:  191
+termination_a_id:  191
+termination_a_type_id:  800
+termination_a_type:  100BASE-TX (10/100ME)
+===================================
+b'{"count":1,"next":null,"previous":null,"results":[{"id":1,"termination_a_type":"dcim.interface","termination_a_id":191,"termination_a":{"id":191,"url":"http://localhost/api/dcim/interfaces/191/?format=json","device":{"id":21,"url":"http://localhost/api/dcim/devices/21/?format=json","name":"dist4","display_name":"dist4"},"name":"Ethernet1/76","cable":1,"connection_status":{"value":true,"label":"Connected"}},"termination_b_type":"dcim.interface","termination_b_id":136,"termination_b":{"id":136,"url":"http://localhost/api/dcim/interfaces/136/?format=json","device":{"id":20,"url":"http://localhost/api/dcim/devices/20/?format=json","name":"dist3","display_name":"dist3"},"name":"Ethernet1/1","cable":1,"connection_status":{"value":true,"label":"Connected"}},"type":"cat3","status":{"value":"connected","label":"Connected","id":true},"label":"","color":"","length":null,"length_unit":null}]}'
+"{\"count\":1,\"next\":null,\"previous\":null,\"results\":[{\"id\":1,\"termination_a_type\":\"dcim.interface\",\"termination_a_id\":191,\"termination_a\":{\"id\":191,\"url\":\"http://localhost/api/dcim/interfaces/191/?format=json\",\"device\":{\"id\":21,\"url\":\"http://localhost/api/dcim/devices/21/?format=json\",\"name\":\"dist4\",\"display_name\":\"dist4\"},\"name\":\"Ethernet1/76\",\"cable\":1,\"connection_status\":{\"value\":true,\"label\":\"Connected\"}},\"termination_b_type\":\"dcim.interface\",\"termination_b_id\":136,\"termination_b\":{\"id\":136,\"url\":\"http://localhost/api/dcim/interfaces/136/?format=json\",\"device\":{\"id\":20,\"url\":\"http://localhost/api/dcim/devices/20/?format=json\",\"name\":\"dist3\",\"display_name\":\"dist3\"},\"name\":\"Ethernet1/1\",\"cable\":1,\"connection_status\":{\"value\":true,\"label\":\"Connected\"}},\"type\":\"cat3\",\"status\":{\"value\":\"connected\",\"label\":\"Connected\",\"id\":true},\"label\":\"\",\"color\":\"\",\"length\":null,\"length_unit\":null}]}"
+<pynetbox.api.Api object at 0x10188f5c0>
+device id:  20
+interface_id:  61
+interface type:  100BASE-TX (10/100ME)
+interface type id:  800
+Ethernet1/76
+dist3
+interface_id:  191
+termination_a_id:  191
+termination_a_type_id:  800
+termination_a_type:  100BASE-TX (10/100ME)
+===================================
+b'{"count":1,"next":null,"previous":null,"results":[{"id":1,"termination_a_type":"dcim.interface","termination_a_id":191,"termination_a":{"id":191,"url":"http://localhost/api/dcim/interfaces/191/?format=json","device":{"id":21,"url":"http://localhost/api/dcim/devices/21/?format=json","name":"dist4","display_name":"dist4"},"name":"Ethernet1/76","cable":1,"connection_status":{"value":true,"label":"Connected"}},"termination_b_type":"dcim.interface","termination_b_id":136,"termination_b":{"id":136,"url":"http://localhost/api/dcim/interfaces/136/?format=json","device":{"id":20,"url":"http://localhost/api/dcim/devices/20/?format=json","name":"dist3","display_name":"dist3"},"name":"Ethernet1/1","cable":1,"connection_status":{"value":true,"label":"Connected"}},"type":"cat3","status":{"value":"connected","label":"Connected","id":true},"label":"","color":"","length":null,"length_unit":null}]}'
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "termination_a_type": "dcim.interface",
+            "termination_a_id": 191,
+            "termination_a": {
+                "id": 191,
+                "url": "http://localhost/api/dcim/interfaces/191/?format=json",
+                "device": {
+                    "id": 21,
+                    "url": "http://localhost/api/dcim/devices/21/?format=json",
+                    "name": "dist4",
+                    "display_name": "dist4"
+                },
+                "name": "Ethernet1/76",
+                "cable": 1,
+                "connection_status": {
+                    "value": true,
+                    "label": "Connected"
+                }
+            },
+            "termination_b_type": "dcim.interface",
+            "termination_b_id": 136,
+            "termination_b": {
+                "id": 136,
+                "url": "http://localhost/api/dcim/interfaces/136/?format=json",
+                "device": {
+                    "id": 20,
+                    "url": "http://localhost/api/dcim/devices/20/?format=json",
+                    "name": "dist3",
+                    "display_name": "dist3"
+                },
+                "name": "Ethernet1/1",
+                "cable": 1,
+                "connection_status": {
+                    "value": true,
+                    "label": "Connected"
+                }
+            },
+            "type": "cat3",
+            "status": {
+                "value": "connected",
+                "label": "Connected",
+                "id": true
+            },
+            "label": "",
+            "color": "",
+            "length": null,
+            "length_unit": null
+        }
+    ]
+}

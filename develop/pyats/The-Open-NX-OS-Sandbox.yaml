@@ -1,0 +1,56 @@
+testbed:
+  name: The-Open-NX-OS-Sandbox
+  credentials:
+    default:
+      username: developer
+      password: C1sco12345
+
+devices:
+  nx-osv9000-1:
+    os: nxos
+    type: nxos
+    platform: nxos
+    connections:
+      cli:
+        ip: 172.16.30.101
+        protocol: ssh
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+  nx-osv9000-2:
+    os: nxos
+    type: nxos
+    platform: nxos
+    connections:
+      cli:
+        ip: 172.16.30.102
+        protocol: ssh
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+  nx-osv9000-3:
+    os: nxos
+    type: nxos
+    platform: nxos
+    connections:
+      cli:
+        ip: 172.16.30.103
+        protocol: ssh
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+  nx-osv9000-4:
+    os: nxos
+    type: nxos
+    platform: nxos
+    connections:
+      cli:
+        ip: 172.16.30.104
+        protocol: ssh
+    credentials:
+      default:
+        password: cisco
+        username: cisco

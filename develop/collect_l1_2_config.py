@@ -51,7 +51,7 @@ if __name__ == '__main__':
   def interface_post_netbox(device, learn):
     interfaces = interfaces_current(learn).keys()
     for ints in interfaces: 
-      netbox_utils.create_netbox_interface(device, ints, 'virtual')
+      netbox_utils.create_netbox_interface(device, ints, 'LAG')
   
 
 while True:    

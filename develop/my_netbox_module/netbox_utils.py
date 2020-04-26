@@ -7,6 +7,7 @@
 import csv
 import os, sys
 import pynetbox
+import requests
 from . import credentials
 
 login_info = credentials.credentials()
@@ -145,6 +146,36 @@ def create_netbox_interface(hostname, interface, interface_type):
         print(nb_interface)
         return nb_interface
 
+def create_netbox_cable(hostname_a, hostname_b, interface_a, interface_b):
+    """Posts cable"""
+    nb_interface_id_a = netbox.dcim.interfaces.get(name=interface_a, device=hostname_a).id
+    nb_interface_type_a = netbox.dcim.interfaces.get(name=interface_a, device=hostname_a).type
+    nb_interface_id_b = netbox.dcim.interfaces.get(name=interface_b, device=hostname_b).id
+    nb_interface_type_b = netbox.dcim.interfaces.get(name=interface_b, device=hostname_b).type
+    
+    ## If the interface has already cable.
+    #get_cable = 
+    cable_data = netbox.dcim.cables.create(
+            termination_a_id=nb_interface_id_a, # interface's id
+            termination_a_type=nb_interface_type_a, # cable type: 100BASE-TX (10/100ME)
+            #side_a_name='Ethernet1/76', # interface name ex.)Ethernet1/76
+            #side_b_device='dist4',　# device name ex.)host1
+            termination_b_id=nb_interface_id_b,
+            termination_b_type=nb_interface_type_b
+        )
+
+#def cable_api():
+#
+#url = "http://localhost/api/dcim/cables/?format=json"
+#
+#payload = {}
+#headers = {
+#  'Authorization': 'Token 0123456789abcdef0123456789abcdef01234567'
+#}
+#
+#response = requests.request("GET", url, headers=headers, data = payload)
+#
+#print(response.text.encode('utf8'))
 #all_prefixes = nb.dcim.devices.all()
 #
 #print(all_prefixes)
