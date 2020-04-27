@@ -1,7 +1,11 @@
 credentials.py
 test.py
 ./my_netbox_module/credentials.py
+*.json
+test_parasheet.csv
 
 ## folders
 __pycache__
 .pytest_cache
+to_test
+dist
