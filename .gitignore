@@ -9,3 +9,6 @@ __pycache__
 .pytest_cache
 to_test
 dist
+/develop/parameter_sheet/
+netbox-docker
+develop
