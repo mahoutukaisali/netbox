@@ -3,6 +3,7 @@ test.py
 ./my_netbox_module/credentials.py
 *.json
 test_parasheet.csv
+later_fix_main.py
 
 ## folders
 __pycache__
