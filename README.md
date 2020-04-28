@@ -1,5 +1,5 @@
-# Get started managing your inventory by Netbox!
-I built this application as a kick start Netbox tool with our network devices.
+# Get started managing your Network devices's inventory by Netbox!
+I built this application as a kick start Netbox tool to manage our network devices.
 
 ![GitHub Logo](mynetbox_slide.png)
 
@@ -10,7 +10,7 @@ This project relies on following packages
 - Docker - version must be at least `17.05`<br>
 
 ## Project Goals
-I have been wanted to manage a bulk of network device's inventories and port connection information by Netbox instead of is too complicated Excel files. So this project aims to register each devices of interface, site location, rack, and neighbors by CDP configuration.<br>
+I have been wanted to manage a bulk of network device's inventories and port connection information by Netbox instead of is too complicated Excel files. So this project aims to register each devices of interface, site location, rack, and CDP neighbors configuration.<br>
  However the problem was how to register these amount of device's information into Netbox. By manual? That's not practical solution.  
  Fortunatly I have excel files and pyATS awesome powerful tool can convert this excel file to Testbed file so I've decided to use them. Want more learning pyATS & Excel file? You can see: https://pubhub.devnetcloud.com/media/pyats-getting-started/docs/quickstart/manageconnections.html#creation-from-excel-file
  
@@ -38,11 +38,11 @@ export NETBOXTOKEN='0123456789abcdef0123456789abcdef01234567'
 3. Run Script
 Now you run the script by following command.
 ```
-python main.py pyats/ 
+python main.py pyats/The-Open-NX-OS-Sandbox.yaml
 ```
-**Note**: You'll might see that all of interfaces are **NOT** registered but several interfaces are registered because default main.py uses `collect_interface_only_up_status()` function which only registers up status interfaces.
+**Note**: You'll might see that all of interfaces are not registered but several interfaces are registered because the default main.py uses `collect_interface_only_up_status()` function which only registers the up status interfaces.
 
-## Caveats / Known Issues / Later Updates / Note
+## Caveats / Known Issues / Later Updates 
 - Since netbox cannot register more than one cable for a single port, I excluded the cable registration for the management port. So you cannot see mgmt0 with cable status. I'll solve how to register them later.
 - Plan to add a function to register the rack information of the device.
 - Make it possible to install the python library of this repository with pip install
