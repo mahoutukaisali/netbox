@@ -45,3 +45,4 @@ python main.py pyats/
 ## Caveats / Known Issues / Later Updates / Note
 - Since netbox cannot register more than one cable for a single port, I excluded the cable registration for the management port. So you cannot see mgmt0 with cable status. I'll solve how to register them later.
 - Plan to add a function to register the rack information of the device.
+- Make it possible to install the python library of this repository with pip install
