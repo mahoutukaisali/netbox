@@ -28,10 +28,9 @@ class Netbox(object):
 
     def create_netbox_manufacturer(self, name):
         """Get and Create a device manufacturer in netbox based on a Parameter Sheet."""
-        ## 登録されているデバイスの製造メーカの情報を取得
+        ## Wether the device manufacturer has already registered.
         nb_manufacturer = self.netbox.dcim.manufacturers.get(name=name)
     
-        ## 意図したメーカーの登録がなければ作成
         if nb_manufacturer is None:
             nb_manufacturer = self.netbox.dcim.manufacturers.create(
                 name=name,
@@ -103,15 +102,13 @@ class Netbox(object):
                 ## redifine to get id
                 tenant_value = self.netbox.tenancy.tenants.get(name=tenant)
             
-            nb_device_data = self.netbox.dcim.devices.create(
+            self.netbox.dcim.devices.create(
                 name = hostname,
                 tenant = tenant_value.id,
                 site = site_value.id,
                 device_role = device_role.id,
                 device_type = device_type.id
             )
-           
-            return nb_device_data
 
 
     #def netbox_interface(hostname, interface, type, enable, lag, description, mtu, mac_address, 802_1qmode):
@@ -139,15 +136,24 @@ class Netbox(object):
             return nb_interface
 
     def create_netbox_cable(self, hostname_a, hostname_b, interface_a, interface_b):
-        """Posts cable"""
-        get_cable = self.netbox.dcim.cables.get(name=interface_a, device=hostname_a)
-        if get_cable == None:
-          nb_interface_id_a = self.netbox.dcim.interfaces.get(name=interface_a, device=hostname_a).id
-          nb_interface_id_b = self.netbox.dcim.interfaces.get(name=interface_b, device=hostname_b).id
-          
-          self.netbox.dcim.cables.create(
-                termination_a_id=nb_interface_id_a, 
-                termination_a_type="dcim.interface", 
-                termination_b_id=nb_interface_id_b,
-                termination_b_type="dcim.interface"
-           )
+        """Posts cable. Caution: You have to register interface and hosts before use
+           this function otherwise it'll be fail.
+        """
+        try: 
+            # Sometimes Netbox returns following Error message so here's using 'try' to avoid it. 
+            # ValueError: get() returned more than one result. 
+            # Check that the kwarg(s) passed are valid for this endpoint or use filter() or all() instead
+            get_cable = self.netbox.dcim.cables.get(name=interface_a, device=hostname_a)
+            if get_cable == None:
+               nb_interface_id_a = self.netbox.dcim.interfaces.get(name=interface_a, device=hostname_a).id
+               nb_interface_id_b = self.netbox.dcim.interfaces.get(name=interface_b, device=hostname_b).id
+              
+               self.netbox.dcim.cables.create(
+                    termination_a_id=nb_interface_id_a, 
+                    termination_a_type="dcim.interface", 
+                    termination_b_id=nb_interface_id_b,
+                    termination_b_type="dcim.interface"
+                )
+        except:
+            pass
+            
